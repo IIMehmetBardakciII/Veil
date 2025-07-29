@@ -1,26 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: "Saudagar";
+  src: url("/fonts/Saudagar.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+@theme {
+  --color-primary: #0f0f0f;
+  --color-secondary: #fdf0c9;
+  --color-accent1: #601f12;
+  --color-accent2: #f5f1eb;
+  --color-secondary_text: #240e0a;
+
+  --font-mont: "Montserrat", sans-serif;
+  --font-saudagar: "Saudagar", serif;
+
+  --spacing-section_desktop_margin: 160px;
+  --spacing-section_mobile_margin: 100px;
+
+  --breakpoint-l: 80rem;
+  --breakpoint-sm: 46.5rem;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+body{
+  background-color: var(--color-primary);
+  filter: url(#noiseFilter);
+  color: var(--color-secondary);
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .display {
+    @apply font-mont  leading-none sm:text-[270px]  sm:tracking-[0.1em] text-[110px] tracking-[0.07em];
   }
-}
+  .h5-saudagar {
+    @apply font-saudagar sm:text-[41px] sm:leading-none sm:-tracking-[0.01em] text-[16px] leading-[20.8px] tracking-normal;
+  }
+  .p-mont {
+    @apply font-mont sm:text-[32px] sm:leading-[41.6px] text-[16px] leading-[20.8px];
+  }
+  .h2-mont {
+    @apply font-mont l:text-[169px] leading-none  sm:text-[105px]  text-[41px] -tracking-[0.01em];
+  }
+  .h4-mont {
+    @apply font-mont sm:text-[66px] sm:leading-none text-[32px] leading-[41.6px] tracking-normal;
+  }
+  .p-storie{
+        @apply font-mont l:text-[32px] l:leading-[41.6px] tracking-normal  sm:text-[24px] sm:leading-[31.2px] text-[16px] leading-[20.8px];
+  }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+  .p-saudagar {
+        @apply font-saudagar l:text-[32px] l:leading-[41.6px] sm:text-[24px] sm:leading-[31.2px] text-[16px] leading-[20.8px];
+  }  
+  
+  .span-mont {
+    @apply font-mont l:text-[24px] l:leading-[31.2px] text-[16px] leading-[20.8px];
+  }
+  .smal-mont {
+    @apply font-mont l:text-[16px] l:leading-[20.8px] text-[12px] leading-normal;
+  }
+
+
+  .menu-link-item{
+    width: max-content;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .menu-link-item-holder{
+    position: relative;
+  }
+  /* .menu-overlay{
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0%);
+
+  } */
 }
